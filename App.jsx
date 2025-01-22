@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react"
+import  {useEffect, useRef, useState} from "react"
 import Header from "./Header";
 import Language from "./Language";
 import Letters from "./Letters";
@@ -12,10 +12,12 @@ import { nanoid } from "nanoid"
 export default function Hangman() {
 
     const alphabet='abcdefghijklmnopqrstuvwxyz'
-    const [currentWord, setCurrentWord] = React.useState("ABFBCQ")
-    const [selectedWord,setSelectedWord] = React.useState(()=>initializeSelectedword())
+    const [currentWord, setCurrentWord] = useState("ABFBCQ")
+    const [selectedStatus,setSelectedStatus] = useState(()=>initilizeSelectedStatus())
     const turnsRef=useRef(currentWord.length-1)
+    const [selectedWord,setSelectedWord]= useState([])
     console.log(turnsRef)
+    console.log(selectedStatus)
     console.log(selectedWord)
 
 
@@ -23,16 +25,10 @@ export default function Hangman() {
         turnsRef.current -=1
     },[selectedWord])
 
-    function initializeSelectedword(){
-        return new Array(currentWord.length)
-            .fill(false)
-            .map(()=>({
-                button:null,
-                buttonStatus:false
-            }))
-
-
+    function initilizeSelectedStatus(){
+        return new Array(currentWord.length).fill(false)
     }
+
 
     function randomWord(){
         const randomIndex= Math.floor(Math.random()*words.length);
@@ -41,36 +37,31 @@ export default function Hangman() {
 
     }
     function clickEvent(prop) {
-        setSelectedWord(prevList => {
-            const updatedList = prevList.map((character, index) => {
-                // Check if the letter in the current word matches the clicked letter
-                if (currentWord[index] === prop.value) {
-                    return {
-                        ...character,
-                        button: prop.value,
-                        buttonStatus: true
-                    };
-                }
-                return character;
-            });
-            return updatedList;
+        setSelectedStatus(prevState =>{
+            return prevState.map((_,index)=>{
+                return currentWord[index]===prop.value?true:_
+            })
         });
+
+        setSelectedWord(prevState => {
+           return [...prevState,prop.value]
+        })
     }
 
 
 
 
     const letterElement = currentWord.split('').map((word, index) => (
-    <Letters key={index} id={index} value={word} show={selectedWord[index].buttonStatus} />
+    <Letters key={index} id={index} value={word} show={selectedStatus[index]} />
     ));
 
 
     const languageElement=languages.map((language,index)=>(
-        <Language  value={language.name} id={index} style={{backgroundColor:language.backgroundColor,color:language.color}} />
+        <Language key={index}  value={language.name} id={index} style={{backgroundColor:language.backgroundColor,color:language.color}} />
     ))
 
     const keyboardElement=alphabet.split('').map((words,index)=>{
-       return <Keyboard onClick={clickEvent} value={words.toUpperCase()} id={index} />
+       return <Keyboard key={index}  selectedWord={selectedWord} selectedStatus={selectedStatus} onClick={clickEvent} value={words.toUpperCase()} id={index} />
     })
 
 
