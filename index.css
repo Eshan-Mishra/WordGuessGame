@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
+    background-color: #262626;
+    color: #D9D9D9;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.head{
+    display: flex;
+    width: 594px;
+    height:fit-content ;
+    padding: 73px 57px 41px 57px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.head>h1{
+    color: #F9F4DA;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26.06px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+.head>p{
+    text-align: center;
+    color:#8E8E8E;
+}
+
+.status{
+    border: 1px solid #323232;
+    background: #7A5EA7;
+    width: 352px;
+    height: 59px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F9F4DA;
+    font-size: 16px;
+    padding: 6px 0px 6px 0px;
+    gap: 6px;
+    border-radius: 4px;
+    opacity: var(0px);
+}
+
+.language{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 25%;
+}
+.language-div{
+    width: fit-content;
+    text-align: center;
+    color: #F9F4DA;
+    font-size: 12px;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    border-radius: 3px;
+    padding: 4.5px;
+}
+
+
+
+
+.letters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 30px 20px 0;
+}
+
+.letters>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#323232 ;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border-bottom:1px #F9F4DA solid ;
+    color: #F9F4DA;
+}
+
+
+.keyboard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:480px;
+    height:164px;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.keyboard>button{
+    width: 40px;
+    height: 40px;
+    background-color: #FCBA29;
+    color: black;
+    border: 1px solid #F9F4DA;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 20.85px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+
