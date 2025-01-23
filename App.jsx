@@ -22,9 +22,9 @@ export default function Hangman() {
 
 
 
-    useEffect(() => {
-        turnsRef.current -= 1;
-    }, [selectedStatus]);
+    // useEffect(() => {
+    //     turnsRef.current -= 1;
+    // }, [selectedStatus]);
 
     function initilizeSelectedStatus() {
         return new Array(currentWord.length).fill().map(() => ['', false]);
@@ -40,11 +40,40 @@ export default function Hangman() {
         setSelectedStatus(prevState => {
             return prevState.map((_, index) => {
                 return currentWord[index] === prop.value ? prevState[index]=[prop.value, true]:_;
+                // if(currentWord[index]===prop.value){
+                //     return prevState[index]=[prop.value, true]
+                // }else {
+                //     turnsRef.current -= 1;
+                //     return _;
+                // }
+
 
             });
         });
-        setKeyStroke(preStroke=>[...preStroke,prop.value])
+        setKeyStroke(preStroke=>[...preStroke,prop.value]);
+
+        // if(keyStroke.includes(prop.value)){
+        //     if(selectedStatus.some(item=>item[0]===prop.value)){
+        //     }else {
+        //         turnsRef.current -=1
+        //     }
+        // }
     }
+    keyStroke.forEach(item => {
+        let foundMatch = false;
+
+        selectedStatus.forEach(selected => {
+            if (item === selected[0]) {
+                foundMatch = true;
+            }
+        });
+
+        if (!foundMatch) {
+            turnsRef.current -= 1;
+        }
+    });
+
+
 
     const letterElement = currentWord.split('').map((word, index) => (
         <Letters selectedStatus={selectedStatus} key={index} turnsRef={turnsRef} id={index} value={word} show={selectedStatus[index][1]} />

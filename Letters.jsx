@@ -12,7 +12,6 @@ export default function Letters(prop) {
     //     x=false
     // }
     const x=selectedStatus.some(item=>item[0]===prop.value && item[1])
-    console.log(typeof x)
     return(
         <div key={prop.id} style={{color:turnsRef===0 ||!x ?"red":null}}>{prop.show || turnsRef===0?prop.value:""}</div>
     )
