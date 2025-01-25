@@ -1,33 +1,13 @@
 export default function Keyboard(props) {
-    let bg ;
-
-
-    if (props.keyStroke.includes(props.value)
-        && props.selectedStatus.some(item => item[0] === props.value
-            && item[1] === true)){
-        bg="green"
-    }
-    else if(props.keyStroke.includes(props.value)){
-        bg="red"
-    }else {
-        bg=true
-    }
-
-    let click
-
-    if(bg===true && props.turnsRef.current>0){
-        click="on"
-    }else {
-        click="off"
-    }
-
-
+    const bg = props.keyStroke.includes(props.value)
+        ? props.selectedStatus.some(item => item[0] === props.value && item[1]) ? "green" : "red"
+        : null;
 
     return (
         <button
             key={props.id}
-            onClick={ click==="on"  ? () => props.onClick(props) : null}
-            style={{ backgroundColor: bg !== true ? (bg === "red" ? "red" : "green") : null }}
+            onClick={bg === null && props.turnsRef.current > 0 ? () => props.onClick(props) : null}
+            style={{ backgroundColor: bg }}
         >
             {props.value}
         </button>
