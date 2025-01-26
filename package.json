@@ -1,7 +1,7 @@
 {
   "name": "Scrim-s06j0bb",
   "description": "https://scrimba.com/learn-react-c0e/~0xts",
-  "scripts": {
+   "scripts": {
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
