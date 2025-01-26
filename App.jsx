@@ -14,26 +14,19 @@ export default function Hangman() {
     const [keyStroke, setKeyStroke] = useState([]);
     const [temp, setTemp] = useState([]);
     const turnsRef = useRef(8);
-    const [overlayShown, setOverlayShown] = useState( new Set());
-    const [message,setMessage]=useState(false)
-    const [gameStatus, setGameStatus]=useState(false)
-
-    console.log(currentWord)
-    // console.log(gameStatus)
-    // console.log(turnsRef.current)
-    console.log(selectedStatus)
-    // console.log(keyStroke)
-
-
-    function startNewGame(){
-        setCurrentWord(randomWord())
+    const [overlayShown, setOverlayShown] = useState(new Set());
+    const [message, setMessage] = useState(false)
+    const [gameStatus, setGameStatus] = useState(false)
+    function startNewGame() {
+        const newWord = randomWord()
+        setCurrentWord(newWord)
+        setSelectedStatus(new Array(newWord.length).fill().map(() => ['', false]));
         setTemp([])
-        turnsRef.current=8
+        turnsRef.current = 8
         setOverlayShown(new Set())
         setMessage(false)
         setGameStatus(false)
         setKeyStroke([])
-        setSelectedStatus(initializeSelectedStatus())
     }
 
     useEffect(() => {
