@@ -1,0 +1,35 @@
+# WordGuessGame - A Classic Word Guessing Experience 🎮📖
+
+Welcome to the **WordGuessGame** repository! This is a Java-based implementation of the classic word guessing game, inspired by Hangman and Wordle.
+
+## Game Objective 🎯
+Guess a randomly selected word one letter at a time before running out of attempts.
+
+## Key Features ✨
+- Dynamic word selection from customizable word lists
+- Interactive gameplay with masked word display
+- Input validation and guess tracking
+- Win/loss conditions with feedback
+- Optional features: Hangman visualization, hint system, replayability
+
+## Technical Implementation 💻
+- Main class: `WordGuessGame.java`
+- Core functionalities: word selection, input validation, progress tracking
+- Uses Java Standard Libraries (Random, Scanner, File I/O)
+
+## Quick Start 🚀
+```bash
+git clone https://github.com/Eshan-Mishra/WordGuessGame.git
+javac WordGuessGame.java
+java WordGuessGame
+```
+
+## Educational Benefits 🧠
+- Practice Java fundamentals
+- Learn object-oriented design
+- Understand UX principles
+
+## Contributing 🤝
+Contributions welcome! Fork, submit issues, or create pull requests.
+
+Happy Guessing! 🎉
