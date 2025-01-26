@@ -2,7 +2,7 @@
   "name": "Scrim-s06j0bb",
   "description": "https://scrimba.com/learn-react-c0e/~0xts",
   "scripts": {
-    "install": "npm install --legacy-peer-deps",
+    "install": "npm install --force",
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
@@ -13,9 +13,17 @@
     "react": "19.0.0-rc-a99d8e8d-20240916",
     "react-confetti": "^6.2.2",
     "react-dom": "19.0.0-rc-a99d8e8d-20240916",
-    "vite": "latest"
+    "vite": "^5.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "*"
+    "@vitejs/plugin-react": "^4.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "overrides": {
+    "react-confetti": {
+      "react": "19.0.0-rc-a99d8e8d-20240916"
+    }
   }
 }
