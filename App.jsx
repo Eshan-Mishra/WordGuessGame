@@ -28,6 +28,7 @@ export default function Hangman() {
         setGameStatus(false)
         setKeyStroke([])
     }
+    console.log(currentWord)
 
     useEffect(() => {
         const index = 7 - turnsRef.current;

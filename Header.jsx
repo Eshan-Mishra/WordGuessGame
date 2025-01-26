@@ -7,7 +7,7 @@ export default function Header({ message, turn,gameStatus }) {
                 <h1>Assembly: Endgame</h1>
                 <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
                 {message && (
-                    <div className="status">
+                    <div className="status" style={{backgroundColor:gameStatus?"green":"red"}} >
 
 
                         {gameStatus ? <p>You win!<br/>Well done! 🎉</p> : turn !== 0 ? getFarewellText(message) :
